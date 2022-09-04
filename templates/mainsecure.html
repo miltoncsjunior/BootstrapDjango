@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block title %} {{ block.super }} v. 0.0.1{% endblock title %}
+
+{% block authentication %}
+
+    {% if user.is_authenticated %}
+        <form action={% url 'accounts:logout' %} method="post" class="d-flex">
+            {% csrf_token %}
+            <button class="btn btn-outline-light" type="submit">Olá {{ user.username }} | Sair</button>
+        </form>
+    {% else %}
+        <form action={% url 'accounts:login' %} method="get" class="d-flex">
+            {% csrf_token %}
+            <button class="btn btn-outline-light" type="submit">Entrar</button>
+        </form>
+    {% endif %}
+
+{% endblock authentication %}
+
+{% block content %}
+    {{ block.super }}
+{% endblock content %}

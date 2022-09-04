@@ -1,0 +1,17 @@
+{% extends 'mainsecure.html' %}
+
+{% block content %}
+
+    <h1 class="display-4">Questionário <i class="fas fa-globe-americas"></i></h1>
+
+    {% if not latest_question_list %}
+        <p>No polls are available.</p>
+    {% else %}
+        <ul>
+            {% for question in latest_question_list %}
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock content %}

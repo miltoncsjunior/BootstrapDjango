@@ -1,0 +1,15 @@
+{% extends 'mainsecure.html' %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">Olá mundo!</h1>
+        <p class="lead">Este é um exemplo simples de uma aplicação usando Bootstrap 5.2 e Django 4.1, com autentição.</p>
+        <hr class="my-4">
+        <p>Registre-se agora para ter acesso total ao aplicativo</p>
+        <p class="lead">
+            <a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">Registrar</a>
+        </p>
+    </div>
+
+{% endblock content %}
