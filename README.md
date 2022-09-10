@@ -17,19 +17,19 @@ git clone https://github.com/miltoncsjunior/BootstrapDjango.git
 Instale as dependências
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 Aplique as atualizações de banco de dados (migrations)
 
 ```bash
-python manage.py migrate
+python3 manage.py migrate
 ```
 
 Execute o servidor de desenvolvimento
 
 ```bash
-python manage.py runserver
+python3 manage.py runserver
 ```
 
 Acesse a aplicação no seu navegador através do endereço **http://localhost:8000**
