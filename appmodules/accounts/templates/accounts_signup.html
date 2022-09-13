@@ -2,21 +2,89 @@
 
 {% block content %}
 
-    <form method="POST" action="{% url 'accounts:signup' %}">
-        {% csrf_token %}
-    
-        {% for field in form %}
-            <b>{{ field.label }}</b>: {{ field }}
-            <br><br>
-        {% endfor %}
+    {% if error %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Erro!</strong><br>{{ error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
 
-        {% if error %}
-            <span style="color: red;">{{ error }}</span>
-            <br><br>
-        {% endif %}
-        
-        <input type="submit" value="Cadastrar" />
-        
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row justify-content-sm-center h-100">
+                <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+                    <div class="text-center my-5">
+                        <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo" width="100">
+                    </div>
+                    <div class="card shadow-lg">
+                        <div class="card-body p-5">
+                            <h1 class="fs-4 card-title fw-bold mb-4">Registrar</h1>
+                            <form method="post" action="{% url 'accounts:signup' %}" class="needs-validation"
+                                novalidate="" autocomplete="off">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="username">Usuário</label>
+                                    <input id="username" type="text" class="form-control" name="username" value="" required
+                                        autofocus>
+                                    <div class="invalid-feedback">
+                                        Usuário obrigatório
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="email">Email</label>
+                                    <input id="email" type="text" class="form-control" name="email" value="" required>
+                                    <div class="invalid-feedback">
+                                        Email obrigatório
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="first_name">Nome</label>
+                                    <input id="first_name" type="text" class="form-control" name="first_name" value="" required>
+                                    <div class="invalid-feedback">
+                                        Nome obrigatório
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="last_name">Sobrenome</label>
+                                    <input id="last_name" type="text" class="form-control" name="last_name" value="" required>
+                                    <div class="invalid-feedback">
+                                        Sobrenome obrigatório
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="password1">Senha</label>
+                                    <input id="password1" type="password" class="form-control" name="password1" value="" required>
+                                    <div class="invalid-feedback">
+                                        Senha obrigatória
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="password2">Confirme</label>
+                                    <input id="password2" type="password" class="form-control" name="password2" value="" required>
+                                    <div class="invalid-feedback">
+                                        Confirme obrigatória
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <button type="submit" class="btn btn-primary ms-auto">
+                                        Entrar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="text-center mt-5 text-muted">
+                        &copy; 2022 &mdash; Bootstrap+Django
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 {% endblock content %}
-
-

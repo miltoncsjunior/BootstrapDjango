@@ -7,7 +7,7 @@
     {% if user.is_authenticated %}
         <form action={% url 'accounts:logout' %} method="post" class="d-flex">
             {% csrf_token %}
-            <button class="btn btn-outline-light" type="submit">Olá {{ user.username }} | Sair</button>
+            <button class="btn btn-outline-light" type="submit">Olá {{ user.get_full_name }} | Sair</button>
         </form>
     {% else %}
         <form action={% url 'accounts:login' %} method="get" class="d-flex">
