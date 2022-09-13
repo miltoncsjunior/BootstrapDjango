@@ -5,10 +5,21 @@
 {% block authentication %}
 
     {% if user.is_authenticated %}
-        <form action={% url 'accounts:logout' %} method="post" class="d-flex">
-            {% csrf_token %}
-            <button class="btn btn-outline-light" type="submit">Olá {{ user.get_full_name }} | Sair</button>
-        </form>
+        <ul class="navbar-nav d-flex">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ user.get_full_name }} 
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Ação 1</a></li>
+                    <li><a class="dropdown-item" href="#">Ação 2</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href={% url 'accounts:logout' %}>Sair</a></li>
+                </ul>
+            </li>
+        </ul>
     {% else %}
         <form action={% url 'accounts:login' %} method="get" class="d-flex">
             {% csrf_token %}

@@ -9,6 +9,6 @@ urlpatterns = [
     #path('', lambda request: redirect('polls/', permanent=False)),
     path('', HomeView.as_view(), name='home'),
     path('admin/', admin.site.urls),
-    path('accounts/', include('appmodules.accounts.urls')),
-    path('polls/', include('appmodules.polls.urls')),
+    path('accounts/', include('apps.accounts.urls')),
+    path('polls/', include('apps.polls.urls')),
 ]

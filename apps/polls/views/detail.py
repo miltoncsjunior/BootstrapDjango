@@ -1,4 +1,4 @@
-from appmodules.polls.models import Question
+from apps.polls.models import Question
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
 from django.views.generic import DetailView
